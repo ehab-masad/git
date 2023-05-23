@@ -34,8 +34,15 @@ public class ListOfStrings {
     }
 
     public String remove (){
+        if(N == 0)
+            throw new NoSuchElementException();
+        String v = items[N-1];
+        items[N-1] = null;
+        N--;
+        if (N > 0 && N == items.length/4)
+            resize(items.length/2);
 
-        return "";
+        return v;
     }
 
     public String get (int position){
